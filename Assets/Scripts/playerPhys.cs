@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     // Force player will move with
-    public float force = 5;
+    public float force;
 
     // Directions
     private float y; // Vertical
