@@ -12,10 +12,7 @@ public class asteroidSummon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        while (true)
-        {
-            spawnAsteroid();
-        }
+        
     }
 
     // Update is called once per frame
