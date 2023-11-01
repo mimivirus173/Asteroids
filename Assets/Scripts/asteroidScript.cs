@@ -43,6 +43,9 @@ public class asteroidScript : MonoBehaviour
         // Start in a random position
         transform.position = new Vector2(rnd.Next(-20, 20), rnd.Next(-9, 9));
 
+        // Edit shape
+        transform.localScale = new Vector3(rnd.Next(1, 5), rnd.Next(1, 5));
+
         // Move self
         rb.AddForce(new Vector2(200, 200));
     }

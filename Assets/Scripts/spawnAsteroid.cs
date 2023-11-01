@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -38,9 +39,12 @@ public class asteroidSummon : MonoBehaviour
 
     IEnumerator Spawn()
     {
-        // Summon clone of a random asteroid from the array
-        Instantiate(asteroids[Random.Range(0, asteroids.Length)]);
+        while (true)
+        {
+            // Summon clone of a random asteroid from the array
+            Instantiate(asteroids[Random.Range(0, asteroids.Length)]);
 
-        yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(Random.Range(1, 5));
+        }
     }
 }
