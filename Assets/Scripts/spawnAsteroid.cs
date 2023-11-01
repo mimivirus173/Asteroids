@@ -6,13 +6,13 @@ using Random = UnityEngine.Random;
 public class asteroidSummon : MonoBehaviour
 {
     public GameObject[] asteroids;
-    float timer = 0;
-    bool timerReached = false;
+    /*float timer = 0;
+    bool timerReached = false;*/
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(Spawn());
     }
 
     // Update is called once per frame
@@ -31,16 +31,16 @@ public class asteroidSummon : MonoBehaviour
         }*/
     }
 
-    void spawnAsteroid()
+    /*void spawnAsteroid()
     {
-        StartCoroutine(Spawn());   
-    }
+        StartCoroutine(Spawn());  
+    }*/
 
     IEnumerator Spawn()
     {
         // Summon clone of a random asteroid from the array
         Instantiate(asteroids[Random.Range(0, asteroids.Length)]);
 
-        yield return new WaitForSeconds(5 /*Random.Range(0, 3)*/);
+        yield return new WaitForSeconds(5);
     }
 }
