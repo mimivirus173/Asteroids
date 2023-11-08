@@ -12,19 +12,7 @@ public class bulletScript : MonoBehaviour
     // Destroy upon contact with wall
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "WallUp")
-        {
-            Destroy(this.gameObject);
-        }
-        if (collision.gameObject.name == "WallDown")
-        {
-            Destroy(this.gameObject);
-        }
-        if (collision.gameObject.name == "WallLeft")
-        {
-            Destroy(this.gameObject);
-        }
-        if (collision.gameObject.name == "WallRight")
+        if (collision.gameObject.name.StartsWith("Wall"))
         {
             Destroy(this.gameObject);
         }

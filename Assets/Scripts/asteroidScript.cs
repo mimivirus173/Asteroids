@@ -19,19 +19,7 @@ public class asteroidScript : MonoBehaviour
         }
 
         // Outer walls
-        if (collision.gameObject.name == "OuterWallUp")
-        {
-            Destroy(this.gameObject);
-        }
-        if (collision.gameObject.name == "OuterWallDown")
-        {
-            Destroy(this.gameObject);
-        }
-        if (collision.gameObject.name == "OuterWallLeft")
-        {
-            Destroy(this.gameObject);
-        }
-        if (collision.gameObject.name == "OuterWallRight")
+        if (collision.gameObject.name.StartsWith("OuterWall"))
         {
             Destroy(this.gameObject);
         }
