@@ -136,8 +136,8 @@ GameObject:
   - component: {fileID: 117366806}
   - component: {fileID: 117366805}
   m_Layer: 0
-  m_Name: WallLeft
-  m_TagString: Untagged
+  m_Name: OuterWallLeft
+  m_TagString: OuterWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -151,8 +151,8 @@ Transform:
   m_GameObject: {fileID: 117366803}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -23.05, y: -0, z: 0}
-  m_LocalScale: {x: 21.5, y: 0.5, z: 1}
+  m_LocalPosition: {x: -28.05, y: -0, z: 0}
+  m_LocalScale: {x: 31.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1886535022}
@@ -166,7 +166,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 117366803}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: f8026faa2db210a4389e1d17f742f36f, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 119854759}
   m_Layer: 0
   m_Name: WallLeft
-  m_TagString: Untagged
+  m_TagString: InnerWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -324,7 +324,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 119854757}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: f8026faa2db210a4389e1d17f742f36f, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -385,7 +385,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 7
 --- !u!212 &119854761
 SpriteRenderer:
@@ -455,7 +455,7 @@ GameObject:
   - component: {fileID: 327024651}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -642,7 +642,7 @@ GameObject:
   - component: {fileID: 331013015}
   m_Layer: 0
   m_Name: WallRight
-  m_TagString: Untagged
+  m_TagString: InnerWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -732,7 +732,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 7
 --- !u!212 &331013017
 SpriteRenderer:
@@ -835,7 +835,7 @@ GameObject:
   - component: {fileID: 459188349}
   m_Layer: 0
   m_Name: OuterWallUp
-  m_TagString: Untagged
+  m_TagString: OuterWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -849,8 +849,8 @@ Transform:
   m_GameObject: {fileID: 459188347}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 10.5, z: 0}
-  m_LocalScale: {x: 46.5, y: 0.5, z: 1}
+  m_LocalPosition: {x: 0, y: 15.5, z: 0}
+  m_LocalScale: {x: 56.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1886535022}
@@ -1182,7 +1182,7 @@ GameObject:
   - component: {fileID: 1448943402}
   m_Layer: 0
   m_Name: WallUp
-  m_TagString: Untagged
+  m_TagString: InnerWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1272,7 +1272,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 7
 --- !u!212 &1448943404
 SpriteRenderer:
@@ -1340,7 +1340,7 @@ GameObject:
   - component: {fileID: 1565508795}
   m_Layer: 0
   m_Name: WallDown
-  m_TagString: Untagged
+  m_TagString: InnerWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1430,7 +1430,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 7
 --- !u!212 &1565508797
 SpriteRenderer:
@@ -1497,8 +1497,8 @@ GameObject:
   - component: {fileID: 1827293221}
   - component: {fileID: 1827293220}
   m_Layer: 0
-  m_Name: WallRight
-  m_TagString: Untagged
+  m_Name: OuterWallRight
+  m_TagString: OuterWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1512,8 +1512,8 @@ Transform:
   m_GameObject: {fileID: 1827293218}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 23.05, y: 0, z: 0}
-  m_LocalScale: {x: 21.5, y: 0.5, z: 1}
+  m_LocalPosition: {x: 28.05, y: 0, z: 0}
+  m_LocalScale: {x: 31.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1886535022}
@@ -1774,8 +1774,8 @@ GameObject:
   - component: {fileID: 2049338122}
   - component: {fileID: 2049338121}
   m_Layer: 0
-  m_Name: WallDown
-  m_TagString: Untagged
+  m_Name: OuterWallDown
+  m_TagString: OuterWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1789,8 +1789,8 @@ Transform:
   m_GameObject: {fileID: 2049338119}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -10.5, z: 0}
-  m_LocalScale: {x: 46.5, y: 0.5, z: 1}
+  m_LocalPosition: {x: 0, y: -15.5, z: 0}
+  m_LocalScale: {x: 56.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1886535022}

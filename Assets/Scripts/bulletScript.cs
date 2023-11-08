@@ -9,10 +9,17 @@ public class bulletScript : MonoBehaviour
     private Rigidbody2D rb;
     public float force;
 
-    // Destroy upon contact with wall
+    // Destroy upon contact with objects
     public void OnCollisionEnter2D(Collision2D collision)
     {
+        // Walls
         if (collision.gameObject.name.StartsWith("Wall"))
+        {
+            Destroy(this.gameObject);
+        }
+
+        // Asteroids
+        if (collision.gameObject.name.StartsWith("Asteroid"))
         {
             Destroy(this.gameObject);
         }
