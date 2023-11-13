@@ -8,6 +8,7 @@ public class asteroidScript : MonoBehaviour
 {
     private Rigidbody2D rb;
     public GameObject asteroid;
+    private GameObject player;
     private int hp;
 
     // Collisions
@@ -59,11 +60,18 @@ public class asteroidScript : MonoBehaviour
         rb.mass = sizeX * sizeY;
 
         // Movement and rotation
-        rb.AddForce(new Vector2
+        player = GameObject.FindGameObjectWithTag("Player");                // Declare for player
+        transform.LookAt(player.transform.position, transform.forward);     // Face towards player
+        rb.AddForce(this.transform.forward * (5000 / (sizeX * sizeY)));      // Add force to "push" self towards player
+        transform.rotation = Quaternion.Euler(0, 0, 0);                     // Reset y-axis so the asteroid faces the correct way
+
+        /*rb.AddForce(new Vector2
             (
                 Random.Range(-200 * (2 + (sizeX / 10)), 200 * (2 + (sizeX / 10))),
                 Random.Range(-200 * (2 + (sizeY / 10)), 200 * (2 + (sizeY / 10)))
-            ));
+            ));*/
+        
+        // Rotation
         rb.AddTorque
             (
                 Random.Range(-30, 30) * (3 + ((sizeX * sizeY) / 10))
