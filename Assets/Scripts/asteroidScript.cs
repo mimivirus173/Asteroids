@@ -1,14 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class asteroidScript : MonoBehaviour
 {
     private Rigidbody2D rb;
-    public GameObject asteroid;
     private GameObject player;
     
     // Variables for asteroid
