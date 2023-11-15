@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Asteroid"))
         {
-            SceneManager.LoadScene(2);
+            // SceneManager.LoadScene(2);
         }
     }
 

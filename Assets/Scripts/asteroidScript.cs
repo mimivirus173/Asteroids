@@ -39,9 +39,6 @@ public class asteroidScript : MonoBehaviour
     {
         // Initialize rigidbody
         rb = GetComponent<Rigidbody2D>();
-        
-        // Start in a random position
-        transform.position = new Vector2(Random.Range(-20, 20), Random.Range(-9, 9));
 
         // Edit shape and declare area variable
         int sizeX = Random.Range(1, 5);
