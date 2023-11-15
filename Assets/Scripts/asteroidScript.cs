@@ -56,8 +56,8 @@ public class asteroidScript : MonoBehaviour
 
         // Movement and rotation
         player = GameObject.FindGameObjectWithTag("Player");                // Declare for player
-        transform.LookAt(player.transform.position, transform.forward);     // Face towards 
-        rb.AddForce(this.transform.forward * speed);                       // Add force to "push" self towards player
+        transform.LookAt(player.transform.position, transform.forward);     // Face towards player
+        rb.AddForce(this.transform.forward * speed);                        // Add force to "push" self towards player
         transform.rotation = Quaternion.Euler(0, 0, 0);                     // Reset y-axis so the asteroid faces the correct way
         
         // Rotation
