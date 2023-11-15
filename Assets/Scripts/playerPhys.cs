@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -17,9 +18,9 @@ public class Player : MonoBehaviour
     // Destroy upon contact with asteroids
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name.StartsWith("Asteroid"))
+        if (collision.gameObject.tag.Equals("Asteroid"))
         {
-            Destroy(this.gameObject);
+            SceneManager.LoadScene(2);
         }
     }
 

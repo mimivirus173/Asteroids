@@ -19,12 +19,6 @@ public class asteroidScript : MonoBehaviour
     // Collisions
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        // Spawn protector
-        if (collision.gameObject.name == "Spawn Protector")
-        {
-            Destroy(this.gameObject);
-        }
-
         // Bullet
         if (collision.gameObject.name.StartsWith("Bullet"))
         {
@@ -62,7 +56,7 @@ public class asteroidScript : MonoBehaviour
 
         // Constants
         hp = area * 5;
-        speed = 500 / Mathf.Sqrt(area);
+        speed = 750 / Mathf.Sqrt(area);
         rb.mass = area;
 
         // Movement and rotation
