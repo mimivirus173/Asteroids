@@ -1,15 +1,22 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using UnityEngine.UI;
 
 public class asteroidScript : MonoBehaviour
 {
     private Rigidbody2D rb;
     private GameObject player;
-
     public static int score = 0;
+
+    // Healthbar
+    public GameObject healthBarUI;
+    public Slider slider;
     
     // Variables for asteroid
-    private int hp;
+    private float hp;
+    private float maxHP;
     private int area;
     private float speed;
 
@@ -26,9 +33,13 @@ public class asteroidScript : MonoBehaviour
         area = sizeX * sizeY;
 
         // Constants
-        hp = area * 5;
+        maxHP = area * 5;
         speed = 750 / Mathf.Sqrt(area);
         rb.mass = area;
+
+        // Health management
+        hp = maxHP;
+        slider.value = CalculateHealth();
 
         // Movement and rotation
         player = GameObject.FindGameObjectWithTag("Player");                // Declare for player
@@ -79,6 +90,16 @@ public class asteroidScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        slider.value = CalculateHealth();
+
+        if (hp < maxHP)
+        {
+            healthBarUI.SetActive(true);
+        }
+    }
+
+    float CalculateHealth()
+    {
+        return hp / maxHP;
     }
 }
