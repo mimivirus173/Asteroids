@@ -100,8 +100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8300a641c9e89964b950574205cf94bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBarUI: {fileID: 2237144091381540712}
-  slider: {fileID: 6262215133956450490}
+  healthBar: {fileID: 0}
+  hp: 0
+  maxHP: 0
 --- !u!50 &9141603776445838322
 Rigidbody2D:
   serializedVersion: 4
@@ -440,8 +441,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2841042337181349747}
   - component: {fileID: 6262215133956450490}
+  - component: {fileID: 4270276536788354783}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: Healthbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -519,6 +521,20 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4270276536788354783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4115591503839711752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c5f205a3b94b9449a1cec9919443015, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 6262215133956450490}
+  target: {fileID: 7872700655829399820}
 --- !u!1 &6850984044280511414
 GameObject:
   m_ObjectHideFlags: 0

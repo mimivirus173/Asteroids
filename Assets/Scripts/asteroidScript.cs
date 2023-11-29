@@ -11,47 +11,21 @@ public class asteroidScript : MonoBehaviour
     public static int score = 0;
 
     // Healthbar
-    public GameObject healthBarUI;
-    public Slider slider;
-    
+    [SerializeField] FloatingStatusBar healthBar;
+
     // Variables for asteroid
-    private float hp;
-    private float maxHP;
+    [SerializeField] float hp, maxHP;
     private int area;
-    private float speed;
 
     // Start is called before the first frame update
     void Start()
     {
-        // Initialize rigidbody
+        // Initialize
         rb = GetComponent<Rigidbody2D>();
+        healthBar = GetComponentInChildren<FloatingStatusBar>();
 
-        // Edit shape and declare area variable
-        int sizeX = Random.Range(1, 5);
-        int sizeY = Random.Range(1, 5);
-        transform.localScale = new Vector3(sizeX, sizeY);
-        area = sizeX * sizeY;
-
-        // Constants
-        maxHP = area * 5;
-        speed = 750 / Mathf.Sqrt(area);
-        rb.mass = area;
-
-        // Health management
-        hp = maxHP;
-        slider.value = CalculateHealth();
-
-        // Movement and rotation
-        player = GameObject.FindGameObjectWithTag("Player");                // Declare for player
-        transform.LookAt(player.transform.position, transform.forward);     // Face towards player
-        rb.AddForce(this.transform.forward * speed);                        // Add force to "push" self towards player
-        transform.rotation = Quaternion.Euler(0, 0, 0);                     // Reset y-axis so the asteroid faces the correct way
-        
-        // Rotation
-        rb.AddTorque
-            (
-                Random.Range(-50, 50) * (3 + (area / 10))
-            );
+        // Initialize asteroid
+        AsteroidInit(Random.Range(1, 5), Random.Range(1, 5));
 
         // Find inner walls via tag
         GameObject[] innerWalls = GameObject.FindGameObjectsWithTag("InnerWall");
@@ -68,16 +42,7 @@ public class asteroidScript : MonoBehaviour
         // Bullet
         if (collision.gameObject.name.StartsWith("Bullet"))
         {
-            // Reduce HP
-            hp -= Random.Range(5, 10);
-
-            // Delete object when HP = 0
-            if (hp <= 0)
-            {
-                score += (area * 100);
-                Debug.Log("Score: " + score);
-                Destroy(this.gameObject);
-            }
+            TakeDamage(Random.Range(5, 10));
         }
 
         // Delete upon contact with outer walls
@@ -87,7 +52,56 @@ public class asteroidScript : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    // Set up asteroid
+    public void AsteroidInit(int sizeX, int sizeY)
+    {
+        // Edit shape and declare area variable
+        transform.localScale = new Vector3(sizeX, sizeY);
+        area = sizeX * sizeY;
+
+        // Constants
+        maxHP = area * 5;
+        rb.mass = area;
+
+        // Health management
+        hp = maxHP;
+        healthBar.UpdateHealthBar(hp, maxHP);
+
+        // Movement of asteroid
+        AsteroidMovement
+        (
+            750 / Mathf.Sqrt(area), 
+            Random.Range(-50, 50) * (3 + (area / 10))
+        );
+    }
+
+    // Asteroid initial movement
+    public void AsteroidMovement(float speed, float rotation)
+    {
+        player = GameObject.FindGameObjectWithTag("Player");                // Declare for player
+        transform.LookAt(player.transform.position, transform.forward);     // Face towards player
+        rb.AddForce(this.transform.forward * speed);                        // Add force to "push" self towards player
+        transform.rotation = Quaternion.Euler(0, 0, 0);                     // Reset y-axis so the asteroid faces the correct way
+        rb.AddTorque(rotation);                                             // Rotate asteroid
+    }
+
+    // Damage script
+    public void TakeDamage(int damageAmount)
+    {
+        // Reduce HP and update healthbar
+        hp -= damageAmount;
+        healthBar.UpdateHealthBar(hp, maxHP);
+
+        // Delete object when HP = 0
+        if (hp <= 0)
+        {
+            score += (area * 100);
+            Debug.Log("Score: " + score);
+            Destroy(this.gameObject);
+        }
+    }
+
+    /*// Update is called once per frame
     void Update()
     {
         slider.value = CalculateHealth();
@@ -96,10 +110,14 @@ public class asteroidScript : MonoBehaviour
         {
             healthBarUI.SetActive(true);
         }
+        else
+        {
+            healthBarUI.SetActive(false);
+        }
     }
 
     float CalculateHealth()
     {
         return hp / maxHP;
-    }
+    }*/
 }
