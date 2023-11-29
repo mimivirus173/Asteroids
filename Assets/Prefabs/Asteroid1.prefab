@@ -202,6 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8300a641c9e89964b950574205cf94bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthbarUI: {fileID: 1241757627393420057}
   healthBar: {fileID: 0}
   hp: 0
   maxHP: 0
@@ -573,4 +574,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 3320907622371838510}
   target: {fileID: 6757043958816277189}
-  offset: {x: 0, y: -0.5, z: 0}
