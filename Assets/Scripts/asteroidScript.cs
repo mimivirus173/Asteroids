@@ -8,6 +8,7 @@ public class asteroidScript : MonoBehaviour
 {
     private Rigidbody2D rb;
     private GameObject player;
+    public ParticleSystem explosionParticles;
     public static int score = 0;
 
     // Healthbar
@@ -95,34 +96,21 @@ public class asteroidScript : MonoBehaviour
         // Reduce HP and update healthbar
         hp -= damageAmount;
         healthBar.UpdateHealthBar(hp, maxHP);
-        healthbarUI.SetActive(true);                                       // Show healthbar when you take damage
+        healthbarUI.SetActive(true);                                         // Show healthbar when you take damage
 
         // Delete object when HP = 0
         if (hp <= 0)
         {
-            score += (area * 100);
-            Debug.Log("Score: " + score);
-            Destroy(this.gameObject);
+            Destruct();
         }
     }
 
-    /*// Update is called once per frame
-    void Update()
+    // Destruction script
+    public void Destruct()
     {
-        slider.value = CalculateHealth();
-
-        if (hp < maxHP)
-        {
-            healthBarUI.SetActive(true);
-        }
-        else
-        {
-            healthBarUI.SetActive(false);
-        }
+        score += (area * 100);
+        Debug.Log("Score: " + score);
+        Destroy(this.gameObject);
+        explosionParticles.Play();
     }
-
-    float CalculateHealth()
-    {
-        return hp / maxHP;
-    }*/
 }
